@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using QuaverEd_App.Server.Data;
+using QuaverEd_App.Server.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,6 +10,7 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddScoped<IGithubRepoSyncService, GithubRepoSyncService>();
 builder.Services.AddDbContext<AppDbContext>(options=>
 {
     options.UseMySql(
