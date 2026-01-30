@@ -11,6 +11,11 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<IGithubRepoSyncService, GithubRepoSyncService>();
+builder.Services.AddHttpClient("github", client =>
+{
+    client.BaseAddress = new Uri("https://api.github.com");
+    client.DefaultRequestHeaders.Add("User-Agent", "QuaverEd-Vue-App");
+});
 builder.Services.AddDbContext<AppDbContext>(options=>
 {
     options.UseMySql(
