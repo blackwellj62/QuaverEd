@@ -12,12 +12,14 @@ public class GithubRepoSyncService : IGithubRepoSyncService
     }
     public async Task<string> SyncTopRepositoriesAsync()
     {
-        var response = await _githubClient.GetAsync("/rate_limit");
+        var requestPath = "/search/repositories?q=language:C%23&sort=stars&order=desc&per_page=100";
+        var response = await _githubClient.GetAsync(requestPath);
         if (!response.IsSuccessStatusCode)
         {
             var body = await response.Content.ReadAsStringAsync();
-            return $"GitHub call failed. Status={(int)response.StatusCode} {response.StatusCode}. Body={body}";
+            return $"GitHub search failed. Status={(int)response.StatusCode} {response.StatusCode}. Body={body}";
         }
-        return "GitHub call succeeded (rate_limit endpoint reachable).";
+        var json = await response.Content.ReadAsStringAsync();
+        return $"GitHub search succeeded. Response length: {json.Length} characters.";
     }
 }
