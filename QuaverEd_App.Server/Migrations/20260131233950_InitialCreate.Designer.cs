@@ -11,7 +11,7 @@ using QuaverEd_App.Server.Data;
 namespace QuaverEd_App.Server.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20260129192546_InitialCreate")]
+    [Migration("20260131233950_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -24,9 +24,9 @@ namespace QuaverEd_App.Server.Migrations
 
             modelBuilder.Entity("QuaverEd_App.Server.Models.Repository", b =>
                 {
-                    b.Property<int>("RepositoryId")
+                    b.Property<long>("RepositoryId")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                        .HasColumnType("bigint");
 
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime(6)");

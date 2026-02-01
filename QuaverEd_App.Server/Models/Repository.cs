@@ -2,7 +2,7 @@ namespace QuaverEd_App.Server.Models;
 
 public class Repository
 {
-    public required int RepositoryId {get; set;}
+    public required long RepositoryId {get; set;}
     public required string Name {get; set;}
     public required string OwnerUsername {get; set;}
     public required string HtmlUrl {get; set;}
