@@ -15,6 +15,14 @@ builder.Services.AddHttpClient("github", client =>
 {
     client.BaseAddress = new Uri("https://api.github.com");
     client.DefaultRequestHeaders.Add("User-Agent", "QuaverEd-Vue-App");
+    client.DefaultRequestHeaders.Add("Accept", "application/vnd.github+json");
+
+    var token = builder.Configuration["GitHub:Token"];
+    if (!string.IsNullOrWhiteSpace(token))
+    {
+        client.DefaultRequestHeaders.Authorization =
+            new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
+    }
 });
 builder.Services.AddDbContext<AppDbContext>(options=>
 {
