@@ -17,7 +17,7 @@ public class GitHubRepoDto
     [JsonPropertyName("html_url")]
     public string? HtmlUrl { get; set; }
     [JsonPropertyName("created_at")]
-    public DateTime? CreatedAt { get; set; }
+    public DateTime CreatedAt { get; set; }
     [JsonPropertyName("pushed_at")]
     public  DateTime? PushedAt { get; set;}
     [JsonPropertyName("description")]

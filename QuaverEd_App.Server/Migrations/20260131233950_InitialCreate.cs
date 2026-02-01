@@ -19,7 +19,7 @@ namespace QuaverEd_App.Server.Migrations
                 name: "Repositories",
                 columns: table => new
                 {
-                    RepositoryId = table.Column<int>(type: "int", nullable: false)
+                    RepositoryId = table.Column<long>(type: "bigint", nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     Name = table.Column<string>(type: "longtext", nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),

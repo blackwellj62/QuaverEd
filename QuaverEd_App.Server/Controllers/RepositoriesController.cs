@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using QuaverEd_App.Server.DTOs;
 using QuaverEd_App.Server.Services;
 
 namespace QuaverEd_App.Server.Controllers
@@ -16,8 +17,8 @@ namespace QuaverEd_App.Server.Controllers
         [HttpPost("sync")]
         public async Task<IActionResult> Sync()
         {
-            var resultMessage = await _syncService.SyncTopRepositoriesAsync();
-            return Ok(new {message = resultMessage});
+            var result = await _syncService.SyncTopRepositoriesAsync();
+            return Ok(result);
         }
     }
 }

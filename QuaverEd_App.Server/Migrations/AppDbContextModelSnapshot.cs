@@ -21,9 +21,9 @@ namespace QuaverEd_App.Server.Migrations
 
             modelBuilder.Entity("QuaverEd_App.Server.Models.Repository", b =>
                 {
-                    b.Property<int>("RepositoryId")
+                    b.Property<long>("RepositoryId")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                        .HasColumnType("bigint");
 
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime(6)");
