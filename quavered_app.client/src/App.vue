@@ -2,9 +2,9 @@
   <div>
     <nav class="navbar navbar-expand navbar-dark bg-dark">
       <div class="container">
-        <RouterLink class="navbar-brand" to="/">QuaverEd</RouterLink>
+        <RouterLink class="navbar-brand" to="/">Home</RouterLink>
         <div class="navbar-nav">
-          <RouterLink class="nav-link" to="/repositories">Repositories</RouterLink>
+          <RouterLink class="nav-link" to="/repositories">Repositories List</RouterLink>
         </div>
       </div>
     </nav>
